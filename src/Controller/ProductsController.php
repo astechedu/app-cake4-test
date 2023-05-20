@@ -141,14 +141,15 @@ class ProductsController extends AppController
     }  
 
 
-    public function test(){  
-      //$id= $this->request->getData('id');
+    public function test($id=null){  
 
-      echo json_encode(['id' => 12]);
+      $id= $this->request->getData('id');
+
+      echo json_encode(['id' => $id]);
 
       //If template not render use exit
       exit; 
-      
+
     }  
 
 }

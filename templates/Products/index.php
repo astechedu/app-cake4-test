@@ -1,4 +1,3 @@
-
 <div class="row">    
     <!-- File:templates/Articles/index.php -->         
     <?php foreach ($products as $product): ?>
@@ -15,6 +14,7 @@
           <div class="card-body">            
             <p class="card-text">Desc:<?php echo $product->description; ?></p>
             <p class="card-text">Price:<?php echo $product->price; ?></p>
+            <input type="hidden" id="id" name="id" value='<?php echo $product->id; ?>' />
             <a href="#" class="btn btn-primary">Buy Now</a>
             <button class="btn btn-md btn-info">Button</button>
           </div>
@@ -25,15 +25,13 @@
 </div>
 
 
-
 <script type="text/javascript">  
 
 $(function(){ 
     // Fetch single record
-     $('button').on('click',function(){
-           //var userid = $('#search').val();
+     $('button').on('click',function(){           
 
-        let id = 1;
+        let id = $('#id').val();
         let url = "<?php echo $this->Url->build(['controller' => 'Products','action' => 'test']) ?>";
           //let url = "<?php echo $this->Url->webroot ?>/ProductsController/test";
            // AJAX request
