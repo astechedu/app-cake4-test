@@ -1,7 +1,6 @@
 # CakePHP specific files #
 ##########################
-/config/app_local.php
-/config/.env
+
 /logs/*
 /tmp/*
 /vendor/*
@@ -57,7 +56,6 @@ yarn-error.log
 # CakePHP 3
 
 /vendor/*
-/config/app.php
 
 /tmp/cache/models/*
 !/tmp/cache/models/empty

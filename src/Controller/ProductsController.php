@@ -17,22 +17,23 @@ class ProductsController extends AppController
         //$this->loadComponent('Maths');
        // Uses in controller: echo $this->Maths->doComplexOperation(3,5);
         $this->loadComponent('Paginator');
-        $this->loadComponent('Flash'); // Include the FlashComponent
+        //$this->loadComponent('Flash'); // Include the FlashComponent
         //$this->loadHelper('Html');
         //$this->loadHelper('Form'); 
         //$this->loadHelper('url'); 
-
+       
         $this->viewBuilder()->setLayout('default');
     }
+   
 
     public function index()
     {              
 
-        
-
         //$this->loadComponent('Paginator');
         $products = $this->Paginator->paginate($this->Products->find());    
-        //pr($articles);
+
+        //dd($products);
+
         $this->set(compact('products'));
     }
 
@@ -137,6 +138,17 @@ class ProductsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-    }    
+    }  
+
+
+    public function test(){  
+      //$id= $this->request->getData('id');
+
+      echo json_encode(['id' => 12]);
+
+      //If template not render use exit
+      exit; 
+      
+    }  
 
 }

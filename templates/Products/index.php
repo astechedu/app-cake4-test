@@ -1,9 +1,9 @@
+
 <div class="row">    
-    <!-- File:templates/Articles/index.php -->     
-    
+    <!-- File:templates/Articles/index.php -->         
     <?php foreach ($products as $product): ?>
 
-        <div class="card" style="width: 18rem;">
+        <div class="card m-2" style="width: 10rem;">
         <h5 class="card-title"><?php echo $product->name; ?></h5>
 
           <img src="" class="card-img-top" alt="...">
@@ -16,9 +16,49 @@
             <p class="card-text">Desc:<?php echo $product->description; ?></p>
             <p class="card-text">Price:<?php echo $product->price; ?></p>
             <a href="#" class="btn btn-primary">Buy Now</a>
+            <button class="btn btn-md btn-info">Button</button>
           </div>
-        </div>        
+        </div>   
+
      <?php endforeach; ?>       
       
 </div>
 
+
+
+<script type="text/javascript">  
+
+$(function(){ 
+    // Fetch single record
+     $('button').on('click',function(){
+           //var userid = $('#search').val();
+
+        let id = 1;
+        let url = "<?php echo $this->Url->build(['controller' => 'Products','action' => 'test']) ?>";
+          //let url = "<?php echo $this->Url->webroot ?>/ProductsController/test";
+           // AJAX request
+           $.ajax({
+               url: url,
+               type: "POST",
+               data: {"id": id},
+               //dataType: 'json',
+               cache: false,  
+                             
+               headers:{
+                    'X-CSRF-Token': $('meta[name="csrfToken"]').attr('content')
+               },  
+
+               success: function(response){
+                    
+                    alert("Ok");
+               },
+               error: function(response){
+                   
+                    alert("error");
+               }               
+           });
+     });
+});
+    
+  
+</script>

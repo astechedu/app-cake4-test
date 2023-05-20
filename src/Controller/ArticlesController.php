@@ -131,6 +131,20 @@ class ArticlesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-    }    
+    }  
+
+
+    public function test(){
+
+      if ($this->request->is('ajax')) {
+
+          $id = $this->request->getData('id');
+
+            echo json_encode(['id' => $id]);
+
+      }
+
+    }  
+      
 
 }
